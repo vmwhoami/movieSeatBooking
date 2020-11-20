@@ -7,6 +7,10 @@ let ticketPrice = +movieSelect.value
 
 
 
+ populateUi();
+
+
+
 
 
 function updateSelectedCount(){
@@ -35,6 +39,21 @@ movieSelect.addEventListener('change',e=>{
 
 })
  
+// Get data from local storage and populate Ui
+
+function populateUi(){
+  let selectedSeats =  JSON.parse(localStorage.getItem('selectedSeats'))
+  if(selectedSeats !== null && selectedSeats.length > 0){
+    seats.forEach((seat,index)=>{
+      if (selectedSeats.indexOf(index)>-1) {
+        seat.classList.add('selected')
+      }
+    })
+  }
+ 
+}
+ 
+
 
 
 container.addEventListener('click',e=>{
