@@ -5,6 +5,10 @@ let total = document.getElementById('total');
 let movieSelect = document.getElementById('movie');
 let ticketPrice = +movieSelect.value
 
+
+
+
+
 function updateSelectedCount(){
   let selectedSeats = document.querySelectorAll('.container .seat.selected')
 
