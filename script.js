@@ -18,15 +18,15 @@ localStorage.setItem('selectedSeats',JSON.stringify(selectedSeatsAray))
 }
 
  function setMovieData(movieIndex,moviePrice){
-  localStorage.setItem('selectedMovie',JSON.stringify(e.target.selectedIndex))
+  localStorage.setItem('selectedMovie', [movieIndex,moviePrice])
  }
 
 movieSelect.addEventListener('change',e=>{
   ticketPrice = e.target.value
   let movieIndex = e.target.selectedIndex
-  let moviePrice = e.target.selectedIndex.value
- console.log(movieIndex,moviePrice)
-  updateSelectedCount()
+  let moviePrice = e.target.value
+  setMovieData(movieIndex,moviePrice);
+  updateSelectedCount();
 
 
 })
