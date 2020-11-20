@@ -11,8 +11,6 @@ let ticketPrice = +movieSelect.value
 
 
 
-
-
 function updateSelectedCount(){
   let selectedSeats = document.querySelectorAll('.container .seat.selected')
 
@@ -25,8 +23,9 @@ localStorage.setItem('selectedSeats',JSON.stringify(selectedSeatsAray))
   total.innerText = selectedSeatsCount*ticketPrice
 }
 
+
  function setMovieData(movieIndex,moviePrice){
-  localStorage.setItem('selectedMovie', [movieIndex,moviePrice])
+  localStorage.setItem('selectedMovie',[movieIndex,moviePrice])
  }
 
 movieSelect.addEventListener('change',e=>{
@@ -50,7 +49,17 @@ function populateUi(){
       }
     })
   }
+
+ let selectedPrice =  localStorage.getItem('selectedMovie').split(',')
+ let movieIndex = +selectedPrice[0]
+ let moviePrice =  +selectedPrice[selectedPrice.length-1]
+
  
+
+ if (movieIndex !== null) {
+  movieSelect.selectedIndex = movieIndex
+ }
+
 }
  
 
@@ -62,8 +71,6 @@ container.addEventListener('click',e=>{
   e.target.classList.toggle('selected')
 
   updateSelectedCount()
-
-
 
  }
 });
