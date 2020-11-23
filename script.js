@@ -42,8 +42,15 @@ function populateUi() {
       }
     });
   }
-  const selectedPrice = localStorage.getItem('selectedMovie').split(',');
-  const movieIndex = +selectedPrice[0];
+  let selectedPrice = localStorage.getItem('selectedMovie');
+
+  if (selectedPrice) {
+    selectedPrice = selectedPrice.split(',')
+
+  }
+
+  const movieIndex = selectedPrice ? +selectedPrice[0] : null
+
   // const moviePrice = +selectedPrice[selectedPrice.length - 1];
 
 
